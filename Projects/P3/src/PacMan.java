@@ -22,6 +22,31 @@ public class PacMan {
   }
 
   public boolean is_ghost_in_range() {
+    
+    int x = myLoc.x;
+    int y = myLoc.y;
+
+    // Possible move locations
+    Location left = new Location(x - 1, y);
+    Location right = new Location(x + 1, y);
+    Location below = new Location(x, y - 1);
+    Location above = new Location(x, y + 1);
+    
+    if (myMap.getLoc(below) != null && myMap.getLoc(below).contains(Map.Type.GHOST) == true) {
+      return true;
+    }
+
+    if (myMap.getLoc(above) != null && myMap.getLoc(above).contains(Map.Type.GHOST) == true) {
+      return true;
+    }    
+
+    if (myMap.getLoc(right) != null && myMap.getLoc(right).contains(Map.Type.GHOST) == true) {
+      return true;
+    }
+
+    if (myMap.getLoc(left) != null && myMap.getLoc(left).contains(Map.Type.GHOST) == true) {
+      return true;
+    }
     return false;
   }
 
