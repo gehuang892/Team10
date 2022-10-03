@@ -63,9 +63,49 @@ public class Map {
   }
 
   public boolean attack(String Name) {
-    // update gameOver
-    return false;
+    Location loc = locations.get(Name);
+
+    if (loc == null) {
+      return false;
+    }
+
+    int x = loc.x;
+    int y = loc.y;
+    
+    // Possible locations of pacman
+    Location left = new Location(x - 1, y);
+    Location right = new Location(x + 1, y);
+    Location below = new Location(x, y - 1);
+    Location above = new Location(x, y + 1);
+
+    // attack pacman by removing and update gameOver
+    
+    if (field.get(left) != null && field.get(left).contains(Map.Type.PACMAN)) {
+      field.remove(loc);
+      locations.remove(Name);
+      components.remove(Name);
+    
+    } else if (field.get(right) != null && field.get(right).contains(Map.Type.PACMAN)) {
+      field.remove(loc);
+      locations.remove(Name);
+      components.remove(Name);
+    
+    } else if (field.get(below) != null && field.get(below).contains(Map.Type.PACMAN)) {
+      field.remove(loc);
+      locations.remove(Name);
+      components.remove(Name);
+    
+    } else if (field.get(above) != null && field.get(above).contains(Map.Type.PACMAN)) {
+      field.remove(loc);
+      locations.remove(Name);
+      components.remove(Name);
+    }
+    
+    gameOver = true;
+    return true;
   }
+
+
 
   public JComponent eatCookie(String name) {
     // update locations, components, field, and cookies
