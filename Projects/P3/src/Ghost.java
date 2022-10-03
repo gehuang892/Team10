@@ -12,7 +12,34 @@ public class Ghost {
   }
 
   public ArrayList<Location> get_valid_moves() {
-    return null;
+    ArrayList<Location> result = new ArrayList<Location>();
+
+    int x = myLoc.x;
+    int y = myLoc.y;
+
+    // Possible move locations
+    Location left = new Location(x - 1, y);
+    Location right = new Location(x + 1, y);
+    Location below = new Location(x, y - 1);
+    Location above = new Location(x, y + 1);
+    
+    if (myMap.getLoc(below) != null && myMap.getLoc(below).contains(Map.Type.WALL) == false) {
+      result.add(below);
+    }
+
+    if (myMap.getLoc(above) != null && myMap.getLoc(above).contains(Map.Type.WALL) == false) {
+      result.add(above);
+    }    
+
+    if (myMap.getLoc(right) != null && myMap.getLoc(right).contains(Map.Type.WALL) == false) {
+      result.add(right);
+    }
+
+    if (myMap.getLoc(left) != null && myMap.getLoc(left).contains(Map.Type.WALL) == false) {
+      result.add(left);
+    }
+
+    return result;
   }
 
   public boolean move() {
