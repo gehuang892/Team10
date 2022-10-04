@@ -60,7 +60,7 @@ public class Map {
 	}
 
   public boolean attack(String Name) {
-    Location loc = locations.get(Name);
+    Location loc = locations.remove(Name);
 
     if (loc == null) {
       return false;
@@ -79,29 +79,25 @@ public class Map {
     
     if (field.get(left) != null && field.get(left).contains(Map.Type.PACMAN)) {
       field.get(loc).remove(Map.Type.PACMAN);
-      locations.remove("pacman");
-      components.remove("pacman");
+      components.remove(Name);
       gameOver = true;
       return true;
     
     } else if (field.get(right) != null && field.get(right).contains(Map.Type.PACMAN)) {
       field.get(loc).remove(Map.Type.PACMAN);
-      locations.remove("pacman");
-      components.remove("pacman");
+      components.remove(Name);
       gameOver = true;
       return true;
     
     } else if (field.get(below) != null && field.get(below).contains(Map.Type.PACMAN)) {
       field.get(loc).remove(Map.Type.PACMAN);
-      locations.remove("pacman");
-      components.remove("pacman");
+      components.remove(Name);
       gameOver = true;
       return true;
     
     } else if (field.get(above) != null && field.get(above).contains(Map.Type.PACMAN)) {
       field.get(loc).remove(Map.Type.PACMAN);
-      locations.remove("pacman");
-      components.remove("pacman");
+      components.remove(Name);
       gameOver = true;
       return true;
     }
