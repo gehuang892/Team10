@@ -77,6 +77,10 @@ public class Map {
     if (l == null) {
       return null;
     }
+
+    if (!(getLoc(l).contains(Map.Type.COOKIE) )) {
+      return null;
+    }
     
     // Use removed location to update the field var.
     field.remove(l);
