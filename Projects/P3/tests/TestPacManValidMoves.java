@@ -11,7 +11,9 @@ public class TestPacManValidMoves extends TestCase {
 
     ArrayList<Location> result = pacMan.get_valid_moves();
     if (result.size() != 2) {
-      fail("Expect 2 possible moves from this location");
+      assertFalse("Expect 2 possible moves from this location", true);
+    } else {
+      assertTrue("Success!", true);
     }
 
 
@@ -19,7 +21,9 @@ public class TestPacManValidMoves extends TestCase {
 
     result = pacMan2.get_valid_moves();
     if (result.size() != 3) {
-      fail("Expect 2 possible moves from this location");
+      assertFalse("Expect 3 possible moves from this location", true);
+    } else {
+      assertTrue("Success!", true);
     }
   }
 }
