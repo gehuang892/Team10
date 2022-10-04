@@ -81,27 +81,33 @@ public class Map {
       field.remove(loc);
       locations.remove(Name);
       components.remove(Name);
+      gameOver = true;
+      return true;
     
     } else if (field.get(right) != null && field.get(right).contains(Map.Type.PACMAN)) {
       field.remove(loc);
       locations.remove(Name);
       components.remove(Name);
+      gameOver = true;
+      return true;
     
     } else if (field.get(below) != null && field.get(below).contains(Map.Type.PACMAN)) {
       field.remove(loc);
       locations.remove(Name);
       components.remove(Name);
+      gameOver = true;
+      return true;
     
     } else if (field.get(above) != null && field.get(above).contains(Map.Type.PACMAN)) {
       field.remove(loc);
       locations.remove(Name);
       components.remove(Name);
+      gameOver = true;
+      return true;
     }
     
-    gameOver = true;
-    return true;
+    return false;
   }
-
 
 
   public JComponent eatCookie(String name) {
