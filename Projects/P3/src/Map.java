@@ -78,30 +78,30 @@ public class Map {
     // attack pacman by removing and update gameOver
     
     if (field.get(left) != null && field.get(left).contains(Map.Type.PACMAN)) {
-      field.remove(loc);
-      locations.remove(Name);
-      components.remove(Name);
+      field.get(loc).remove(Map.Type.PACMAN);
+      locations.remove("pacman");
+      components.remove("pacman");
       gameOver = true;
       return true;
     
     } else if (field.get(right) != null && field.get(right).contains(Map.Type.PACMAN)) {
-      field.remove(loc);
-      locations.remove(Name);
-      components.remove(Name);
+      field.get(loc).remove(Map.Type.PACMAN);
+      locations.remove("pacman");
+      components.remove("pacman");
       gameOver = true;
       return true;
     
     } else if (field.get(below) != null && field.get(below).contains(Map.Type.PACMAN)) {
-      field.remove(loc);
-      locations.remove(Name);
-      components.remove(Name);
+      field.get(loc).remove(Map.Type.PACMAN);
+      locations.remove("pacman");
+      components.remove("pacman");
       gameOver = true;
       return true;
     
     } else if (field.get(above) != null && field.get(above).contains(Map.Type.PACMAN)) {
-      field.remove(loc);
-      locations.remove(Name);
-      components.remove(Name);
+      field.get(loc).remove(Map.Type.PACMAN);
+      locations.remove("pacman");
+      components.remove("pacman");
       gameOver = true;
       return true;
     }
