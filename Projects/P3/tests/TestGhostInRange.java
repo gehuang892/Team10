@@ -10,15 +10,12 @@ public class TestGhostInRange extends TestCase {
     PacMan pacman = frame.addPacMan(new Location(5, 6));
 
     // Expect no ghost in range -> false
-    if (pacman.is_ghost_in_range() == true) {
-      fail("Expected false since a ghost should not be within range");
-    }
+    assertTrue(pacman.is_ghost_in_range());
 
     Ghost ghost = frame.addGhost(new Location(5, 5), "name", Color.red);
 
     // Expect for a ghost to be in range -> true
-    if (pacman.is_ghost_in_range() == false) {
-     fail("Expected true since a ghost should be within range");
-    }
+    assertFalse(pacman.is_ghost_in_range());
+
   }
 }
