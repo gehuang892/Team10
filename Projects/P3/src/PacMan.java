@@ -58,15 +58,15 @@ public class PacMan {
   }
 
   public JComponent consume() {
-	 int x = myLoc.x;
-	 int y = myLoc.y;
-	 Location curr = new Location(x, y);
-	 
-	 if (myMap.getLoc(curr).contains(Map.Type.COOKIE)) {
-		 return myMap.eatCookie(myName); 
-	 }
-	 
-	 return null;
+    int x = myLoc.x;
+    int y = myLoc.y;
+    Location curr = new Location(x, y);
+     
+    if (myMap.getLoc(curr).contains(Map.Type.COOKIE)) {
+    	return myMap.eatCookie(myName);
+    }
+    
+    return null;
   }
 
 }
