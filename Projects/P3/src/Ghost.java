@@ -1,15 +1,20 @@
 import java.util.ArrayList;
 
 public class Ghost {
-  String myName;
-  Location myLoc;
-  Map myMap;
+	String myName;
+	Location myLoc;
+	Map myMap;
 
-  public Ghost(String name, Location loc, Map map) {
-    this.myLoc = loc;
-    this.myName = name;
-    this.myMap = map;
-  }
+	public Ghost(String name, Location loc, Map map) {
+		this.myLoc = loc;
+		this.myName = name;
+		this.myMap = map;
+	}
+
+
+	public ArrayList<Location> get_valid_moves() {
+		return null;
+	}
 
   public ArrayList<Location> get_valid_moves() {
     ArrayList<Location> result = new ArrayList<Location>();
@@ -42,9 +47,23 @@ public class Ghost {
     return result;
   }
 
-  public boolean move() {
-    return false;
-  }
+	public boolean move() {
+		ArrayList<Location> moves = get_valid_moves();
+		if (!moves.isEmpty()) {
+			myLoc.x = moves.get(0).x;
+			myLoc.y = moves.get(0).y;
+			return true;
+		}
+		return false;
+	}
+
+	public boolean is_pacman_in_range() {
+		return false;
+	}
+
+	public boolean attack() {
+		return false;
+	}
 
   public boolean is_pacman_in_range() {
     int x = myLoc.x;
