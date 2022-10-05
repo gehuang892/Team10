@@ -59,31 +59,55 @@ public class Map {
 		return field.get(loc);
 	}
 
-	public boolean attack(String Name) {
-		// update gameOver
-		return false;
-	}
+  public boolean attack(String Name) {
+    Location loc = locations.remove(Name);
+
+    if (loc == null) {
+      return false;
+    }
+
+    int x = loc.x;
+    int y = loc.y;
+    
+    // Possible locations of pacman
+    Location left = new Location(x - 1, y);
+    Location right = new Location(x + 1, y);
+    Location below = new Location(x, y - 1);
+    Location above = new Location(x, y + 1);
+
+    // attack pacman by removing and update gameOver
+    
+    if (field.get(left) != null && field.get(left).contains(Map.Type.PACMAN)) {
+      field.get(loc).remove(Map.Type.PACMAN);
+      components.remove(Name);
+      gameOver = true;
+      return true;
+    
+    } else if (field.get(right) != null && field.get(right).contains(Map.Type.PACMAN)) {
+      field.get(loc).remove(Map.Type.PACMAN);
+      components.remove(Name);
+      gameOver = true;
+      return true;
+    
+    } else if (field.get(below) != null && field.get(below).contains(Map.Type.PACMAN)) {
+      field.get(loc).remove(Map.Type.PACMAN);
+      components.remove(Name);
+      gameOver = true;
+      return true;
+    
+    } else if (field.get(above) != null && field.get(above).contains(Map.Type.PACMAN)) {
+      field.get(loc).remove(Map.Type.PACMAN);
+      components.remove(Name);
+      gameOver = true;
+      return true;
+    }
+    
+    return false;
+  }
 
   public JComponent eatCookie(String name) {
     // update locations, components, field, and cookies
     // the id for a cookie at (10, 1) is tok_x10_y1
-
-    // Update location, remove given cookie id
-    Location l = locations.remove(name);
-
-    if (l == null) {
-      return null;
-    }
-    
-    // Use removed location to update the field var.
-    field.remove(l);
-
-    // Update cookies var
-    cookies++;
-
-    // Update components var
-    return components.remove(name);
-    
+    return null;
   }
-
 }
