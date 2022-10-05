@@ -73,6 +73,7 @@ public class Map {
   public boolean attack(String Name) {
     Location loc = locations.remove(Name);
 
+    // Check is location is null
     if (loc == null) {
       return false;
     }
