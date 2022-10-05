@@ -16,12 +16,6 @@ public class Ghost {
 	}
 
 	public boolean move() {
-		ArrayList<Location> moves = get_valid_moves();
-		if (!moves.isEmpty()) {
-			myLoc.x = moves.get(0).x;
-			myLoc.y = moves.get(0).y;
-			return true;
-		}
 		return false;
 	}
 
