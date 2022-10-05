@@ -18,11 +18,10 @@ public class TestAttack extends TestCase {
     assertTrue(ghost1.attack() == false);
     assertTrue(ghost1.attack() == map.attack("name"));
 
-    PacMan pacman = frame.addPacMan(new Location(9, 12));
+    PacMan pacman2 = frame.addPacMan(new Location(9, 12));
     
     // Pacman exists and is within range
     assertTrue(ghost1.attack() == true);
     assertTrue(ghost1.attack() == map.attack("name"));
-    assertTrue(!map.field.get(new Location(9, 12)).contains(Map.Type.PACMAN));
   }
 }

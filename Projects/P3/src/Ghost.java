@@ -11,6 +11,9 @@ public class Ghost {
 		this.myMap = map;
 	}
 
+	public ArrayList<Location> get_valid_moves() {
+		return null;
+	}
 
   public ArrayList<Location> get_valid_moves() {
     ArrayList<Location> result = new ArrayList<Location>();
@@ -42,8 +45,7 @@ public class Ghost {
 
     return result;
   }
-
-
+  
 	public boolean move() {
 		ArrayList<Location> moves = get_valid_moves();
 		if (!moves.isEmpty()) {
@@ -53,7 +55,14 @@ public class Ghost {
 		}
 		return false;
 	}
+  
+	public boolean is_pacman_in_range() {
+		return false;
+	}
 
+	public boolean attack() {
+		return false;
+	}
 
   public boolean is_pacman_in_range() {
     int x = myLoc.x;
