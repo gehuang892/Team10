@@ -101,6 +101,10 @@ public class Map {
       gameOver = true;
       return true;
     }
+
+    if (!(getLoc(l).contains(Map.Type.COOKIE) )) {
+      return null;
+    }
     
     return false;
   }
