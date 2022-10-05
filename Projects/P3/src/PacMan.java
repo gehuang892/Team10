@@ -43,7 +43,6 @@ public class PacMan {
 		this.myMap = map;
 	}
 
-
 	public boolean move() {
 		ArrayList<Location> moves = get_valid_moves();
 		if (!moves.isEmpty()) {
@@ -53,6 +52,7 @@ public class PacMan {
 		}
 		return false;
 	}
+  
 
 
   public boolean is_ghost_in_range() {
