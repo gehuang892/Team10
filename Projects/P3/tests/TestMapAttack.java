@@ -17,9 +17,6 @@ public class TestMapAttack extends TestCase {
     Ghost ghost1 = frame.addGhost(loc, "name", Color.red);
 
     assertTrue(map.attack("name") == true);
-    
-    assertTrue(!map.field.get(loc).contains(Map.Type.PACMAN));
-
     assertTrue(map.isGameOver() == true);
   }
 }
