@@ -1,288 +1,153 @@
+### We all worked on this README in collaboration. Everyone wrote the descriptions for their methods.
+
+<p>&nbsp;</p>
+
 # Project 3: PacMan
 
-Due: 10/05/2022, 11:59pm EDT Late: 10/07/2022, 11:59pm
+# Group Members:
+  Kishore Nagarajan, Richard Bui, Tina Le, Adrian Paras
+<p>&nbsp;</p>
 
-## Before You Start
-
-Make sure you have completed Project 0 and set up your local environment. Your project manager should have set up a repository for you and your team to complete. Make sure you are working with that repository.
-
-## Introduction
-
-In this project, you will be working in a team to develop the code for an Automonous PacMan. There are 4 parts to this project:
-
-1. Code Development
-1. Testing
-1. Code Review
-1. README
-
-Each part has been created to be evenly distributed among your team. This means that we also will be grading most of your project score based on individual contribution.
-
-### Submitting
-
-Once you complete each feature, you will submit a pull request from your feature to the main branch. Assign your project manager as a reviewer to this pull request and they will grade your work. Make sure to assign any pull requests from feature items to feature branches to your assigned cards. We will use this to grade your individual contributions. **Please submit a link to the repository in ELMS when the project is finished.**
-
-## Part 1
-
-In this part of the project, you will develop code collaboratively with your team. There are 3 features that you will be working on:
-
-1. FTR-pacman
-1. FTR-ghost
-1. FTR-map
-
-For each feature, a template java file has been provided that you will be filling out with your team.
-
-Each feature can be divided evenly among your group and each member should create their own feature-item branch off of the feature branch. First, create the 3 FTR branches for FTR-pacman, FTR-ghost, and FTR-map. Then, each member of your team can create a feature-item branch off of each of the FTR branches created. (One member should create the 3 main FTR branches and push them to the repository before everyone begins working on their sections). For example, if you are working on the PacMan class and have chosen to work on the get_valid_moves function, you should make a branch _from_ FTR-pacman with the name pacman-get_valid_moves.
-
-_By the end of this section, you should have 12 feature item branches and 3 feature branches with your code. You should also have a corresponding kanban board card for each feature-item branch (Totaling to 3 cards per member)._
-
-Once this part has been completed, you should be able to see a JFrame appear that allows you to play Automonous PacMan by compiling and running your files:
+# How to Run the Game:
 
 ```bash
 javac -cp "src/" src/*.java
 java -cp "src/" StartMenu
 ```
 
-Make sure to run these commands from inside the P1 directory
+# Function Descriptions
 
-- **javac** - compiles all of the source files
-- **java** - runs the StartMenu java program
-- **-cp** - specifies the classpaths
-
-## Part 1a: PacMan Class
+## PacMan Class
 
 ### get_valid_moves()
-
-- **Type**: `() -> ArrayList`
-- **Description**: This method returns all the valid moves that PacMan can make given his current position.
-- **Examples**:
-  ```java
-  //pacman at location (9,11)
-  pacman.get_valid_moves() -> {(9,12), (10,11), (10,12)}
-  ```
-
+This function returns all of the valid moves from where PacMan is currently. A valid move is any location coordinate that does not contain a wall and is within range.
+  
 ### move()
-
-- **Type**: `() -> Bool`
-- **Description**: This method uses the get_valid_moves method to find the possible locations that PacMan can move, given his current location. The method then chooses to move in one of those directions. You are free to apply an algorithm here if you would like, but the only requirement is that you move in a valid direction. If PacMan is able to move, this function returns true otherwise it returns false.
-- **Examples**:
-  ```java
-  //pacman at location (9,11)
-  pacman.move() -> true
-  pacman.myLoc ∈ {(9,12), (10,11), (10,12)}
-  ```
+  This method uses the get_valid_moves method to find the possible locations that PacMan 
+  can move, given his current location. The method then chooses to move in one of those directions.
 
 ### is_ghost_in_range()
-
-- **Type**: `() -> Bool`
-
-- **Description**: This method checks its surroundings to see if any Ghosts are in attack range. The attack radius of a ghost is 1 which means that a ghost at location <img src="https://render.githubusercontent.com/render/math?math=(x, y)"> can attack PacMan as long as PacMan is located at <img src="https://render.githubusercontent.com/render/math?math=(x \pm 1, y \pm 1)">. If any Ghosts are in the attack range, this method returns true otherwise it returns false.
-
-- **Examples**:
-
-  ```java
-  //ghost at location (9,11)
-  //pacman at location (9,12)
-  pacman.is_ghost_in_range() -> true
-  ```
+  Check nearby locations (left, right, up, down) to see if a Ghost is there. Return true if there is a ghost in one of these locations else false.
 
 ### consume()
 
-- **Type**: `() -> JComponent`
-- **Description**: This method checks to see if there is a 'power-cookie' located in Pacman's current <img src="https://render.githubusercontent.com/render/math?math=(x, y)"> coordinate. If there is, this method calls the eatCookie method from the Map Class, and returns the cookie component if the cookie a consumed, and null otherwise.
-- **Examples**:
+  This function checks if there is a ‘power-cookie’ located in PacMan’s current (x, y) coordinate. If there is, this method calls eatCookie() from the Map class, and returns the cookie component if the cookie is consumed, and null otherwise. 
 
-```java
-//pacman at location (9,12)
-//cookie NOT at location (9,12)
-pacman.consume() -> null
-```
+<p>&nbsp;</p>
 
-## Part 1b: Ghost Class
-
-In this section, you must create a class for the ghosts that are moving around the map. The class and constructor are given to you in the Ghost.java file. Each team member should choose one of the following functions to complete and create a feature-item branch off of the FTR-ghost feature branch.
+## Ghost Class
 
 ### get_valid_moves()
-
-- **Type**: `() -> ArrayList<Location>`
-- **Description**: This function returns an arraylist of possible locations that a ghost can move to from its current location. Ghosts cannot move through walls, but they can move through other ghosts or PacMan.
-- **Examples**:
-  ```java
-  //ghost at location (9,11)
-  ghost.get_valid_moves() -> {(9,12), (10,11), (10,12)}
-  ```
+  Returns an ArrayList of possible move locatiosn for the Ghost. Check (left, right, up, down) to see if Ghost is allowed to move there and return these possible locations.
 
 ### move()
-
-- **Type**: `() -> Bool`
-
-- **Description**: This function uses the get_valid_moves function to find the possible locations that a ghost can move to from its current location and chooses to move in one of those directions. You are free to apply an algorithm here if you would like, but the only requirement is that you move in a valid direction. If the ghost is able to move, this function returns true otherwise it returns false.
-
-- **Examples**:
-
-  ```java
-  //ghost at location (9,11)
-  ghost.move() -> true
-  ghost.myLoc ∈ {(9,12), (10,11), (10,12)}
-  ```
+  This function uses the get_valid_moves function to find the possible locations that a ghost can 
+  move to from its current location and chooses to move in one of those directions.
 
 ### is_pacman_in_range()
-
-- **Type**: `() -> Bool`
-
-- **Description**: This function checks its surroundings to see if PacMan is in attack range. The attack radius of a ghost is 1 which means that a ghost at location <img src="https://render.githubusercontent.com/render/math?math=(x, y)"> can attack PacMan as long as PacMan is located at <img src="https://render.githubusercontent.com/render/math?math=(x \pm 1, y \pm 1)">. If PacMan is in the attack range, this function returns true otherwise it returns false.
-
-- **Examples**:
-
-  ```java
-  //ghost at location (9,11)
-  //pacman at location (9,12)
-  ghost.is_pacman_in_range() -> true
-  ```
+This function checks to see if PacMan is within range by checking if the map contains a type PACMAN directly above, below, left, or to the right of the ghost.
 
 ### attack()
+  This function checks to see if PacMan is within range attack by calling the is_pacman_in_range function. If it is in range, attack PacMan and return true. Otherwise, return false.
 
-- **Type**: `() -> Bool`
 
-- **Description**: This function checks to see if PacMan is in the attack range by using the is_pacman_in_range method and attacks PacMan if it is in range. This function returns true if the attack was successful and false otherwise.
 
-- **Examples**:
-
-  ```java
-  //ghost at location (9,11)
-  //pacman at location (9,12)
-  ghost.attack() -> true
-  ```
+<p>&nbsp;</p>
 
 ## Map Class
 
-The Map Class uses Java GUI to create the visual represenation of our game. For this project, we have given you most the code for the GUI with the exception of 4 methods which you will have to write. The goal of this section is to develop the interaction between pacman and walls and cookies as well as attacking ghosts.
-
 ### move(String name, Location loc, Type type)
-
-- **Type**: `(String name, Location loc, Type type) -> Bool`
-- **Description**: The method takes a name, location, and type and put the object specified by the name at the location. If the function is able to successfull move the object it returns true, otherwise it returns false.
-- **Examples**:
-  ```java
-  //pacman at location (2,4)
-  map.move("pacman", new Location (2,4), Map.Type.PACMAN) -> true
-  ```
+This function updates the locations, components, and field of the map. It will update the location of the associated type and name of object inputted by the user.
 
 ### getLoc(Location loc)
-
-- **Type**: `(Location loc) -> HashSet<Type>`
-- **Description**: For the given location argument, returns what is currently at the location (Empty, Pacman, Cookie, Ghost, Wall).
-
-```java
- //pacman at location (2,4)
- map.getLoc(new Location (2,4) -> Map.Type.PACMAN
-```
+For the given location argument, returns what is currently at the location 
+(Empty, Pacman, Cookie, Ghost, Wall).
 
 ### attack(String name)
-
-- **Type**: `(String name) -> Bool`
-- **Description**: The method controls ghosts attacking pacman. If the ghost was able to successfully attack pacman and update the display to do so return true, otherwise return false.
-
-```java
- //ghost named clyde at location (9,11)
- //pacman at location (9,12)
- Map.attack("clyde") -> true
-```
+  This function controls ghosts attacking PacMan. If the ghost was able to successfully attack PacMan and update the display, return true. Otherwise, return false.
 
 ### eatCookie(String Name)
+This method's purpose is to control Pacman eating a cookie. If Pacman is able to eat the Cookie, the display is updated and the component eaten is returned.
 
-- **Type**: `() -> JComponent`
-- **Description**: The method controls Pacman eating a cookie. When the function is able to successfully update display to eat a cookie it returns the Cookie component that has been eaten, otherwise it returns null.
+<p>&nbsp;</p>
 
-```java
- //cookie NOT at location (4,6)
- //pacman at location (4,6)
- Map.eatCookie("pacman") -> null
-```
+# Function Testing
 
-## Part 2: Writing Tests
+## PacMan Class
 
-In this section, you will write tests for each of the feature-items you have worked on. For each class, there is a tests file that contains a template for writing JUnit tests in the tests folder. In each feature-item, write a JUnit test that checks to see if the function you wrote is working correctly. To complete this part,
+### get_valid_moves()
+A PacMan is added to the frame. In this case, it’s added at coordinates (1, 1). There should only be two valid moves from this coordinate. Another PacMan is added (pacman2) at coordinates (1, 3). Here, there should be three valid moves.
+  
+### move()
+Creates a map and adds a pacman at location (9, 11). We check that at 
+this point, there are no available moves pacman can make. We then add a
+cookie at location (9, 12), and at this point, pacman should be able to move
+to this position.
 
-- write a JUnit test for each function that you have completed
-- add and commit each test you wrote to your feature-item branch
-- **Run the test!** Make sure that your test passes when the code is correct
-- Make sure that you can break the code and that the test fails
+### is_ghost_in_range()
+  Starting with an empty frame, placed just Pacman on the board. In this scenario, there should be no ghost in 
+  range so false should be returned. After placing a Ghost in a location adjacent to Pacman, the method is called
+  again as we should expect True since a ghost is nearby.
 
-We aren't necessarily looking for complete coverage with this section, but you are welcome to make your tests as robust as possible. It is important that your test passes when the code is correct and that you can modify your original code (to be incorrect) which will result in the test failing. **You will be using these tests in Project 2**.
 
-**Important Notes**
+### consume()
 
-When writing the tests, you may find some of the following commands useful:
+A PacMan is added to the frame. In this case, it’s added at coordinates (0, 0). Since there is no cookie at PacMan’s current coordinates, check that pacman.consume() returns null. Another PacMan is added (pacman2) at coordinates (1, 1). We ensure a cookie is located at the same coordinates and that calling consume() on the newly added PacMan will not return null. A cookie component is returned instead.
 
-```java
-//Creating A Map
-Mainframe frame = new MainFrame(); //Creates A New Map With Walls and Tokens Initialized
-NoFrame frame = new NoFrame(); //Creates A New Map With Walls and Tokens w/o a Display
 
-//Creating Players
-Ghost ghost = frame.addGhost(new Location(x, y), "name", Color.red); //Creates a red ghost named "name" at location x,y
-PacMan pacman = frame.addPacMan(new Location(x, y)); //Creates PacMan at location x, y
 
-//alternatively if you don't need the PacMan or Ghost objects in your tests
-frame.initPlayers(); //Creates all of the players
 
-//Start The Game
-frame.startGame();
-```
+<p>&nbsp;</p>
 
-To compile your tests, run the following lines from the project directory in your command line:
+## Ghost Class
 
-```bash
-javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
-java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore your_test_here
-ex: java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostMove
-```
+### get_valid_moves()
+  On the pre-built Mainframe, setting Pacman to position (1,1) where there are only two possible moves on this location of the board.
+  Additionally, check at position (1,3) Pacman has three possible moves. These values were observed based on the pre-set values of the Mainframe 
+  board.
 
-## Part 3: Code Review
+### move()
+Creates a map and adds a ghost at location (9, 11). We check that at 
+this point, there are no available moves pacman can make. We then add a
+cookie at location (9, 12), and at this point, the ghost should be able to move
+to this position.
 
-For this part of the project, each team member must submit a pull request for each feature-item that they have worked on. To do this,
+### is_pacman_in_range()
+A ghost (ghost1) is added to the frame with coordinates (5, 6). Verify that when no PacMan exists nearby and should return false. A PacMan (pacman) is added to the frame with coordinates (5, 5). Because PacMan is within range of the ghost, ghost1.is_pacman_in_range() should still return true. 
 
-- Push each feature-item branch to your remote repository
-- Create a pull request for each feature-item to merge them with their respective feature branches
-- Assign yourself to the pull request
-- Assign one of your team membes as a reviewer
-- Link the pull request to your Kanban Card
 
-Each team member **must** also review another team member's pull requests and
+### attack()
+  A ghost (ghost1) is added to the frame with coordinates (9, 11). Verify that when no PacMan exists, ghost1.attack() is unsuccessful and returns false. A PacMan (pacman) is added to the frame with coordinates (1, 1). Because PacMan is not within range of the ghost, ghost1.attack() should still return false. Add another pacman (pacman2) with coordinates (9, 12). Now that there is a PacMan in range, ghost1.attack() should return true. 
 
-- Read through the changes and leave comments or request changes if needed
-- Approve a pull request on Github Correctly
-- Complete the pull request by merging changes
 
-To make it easier, you may want to have each team member review only one other team member's pull requests. This would gaurantee that everyone on the team will review the same number of pull requests.
 
-## Part 4: Writing a README
 
-For this section you will be creating your own project README with your group. Each member of the group is expected to contribute to the README for the functions they were responsible for. All work for the README must be done on Github. We will be looking at who contributed to the README file for the purpose of grading, and will only consider contributions made to the file.
 
-**DO NOT USE GOOGLE DOCS TO CREATE THIS README**. We have had to deduct points for this in the past, please do not do this.
+<p>&nbsp;</p> 
 
-Your README MUST have
+## Map Class
 
-- A title
-- Your group members names
-- An image of your code playing PacMan
-- A section on how to run the code from the command line
-  - include a code block
-- A list of the functions you wrote with
-  - a description of the implementation for each function
-  - a description of the test you wrote
+### move(String name, Location loc, Type type)
+Creates a general map in the frame. It will then call move on a pacman in the map, which should return true. However, calling move on a wall which is another type in the Map class  should return false because we should not be able to move walls. 
 
-The descriptions don't have to be long - a sentence or two would suffice.
+### getLoc(Location loc)
+Verifies that when nothing is at a certain location in the map (in this case (9, 11),
+the function would return null. When adding locations (9, 11) and (9, 12), with types cookie
+and wall, we verify that calling the function with it's toString() representation
+gives us the correct corresponding type.
 
-Feel free to be creative and add any other elements. For example, you could
+### attack(String name)
+  Checks that when a ghost with specified name doesn’t exist, map.attack returns false and the game is still not over. When a ghost is added to the frame with a location 1 radius away from PacMan, we verify that it can successfully attack PacMan and the game is now over.
 
-- add a video of your code playing PacMan instead of an image
-- add small code blocks that supplement your descriptions
-- add a table of contents for your readme
+### eatCookie(String Name)
+  Using the Mainframe map and its preset cookie locations, first check if a random "test" string exists in the map. This should return null as something named
+  "test" should not exist. Additionally, pacman is set to location (1,1) where a cookie was preset on the MainFrame. This should return a non-null component since
+  a cookie could be eaten.
 
-These aren't required, but could be interesting to explore.
+<p>&nbsp;</p> 
 
-## Academic Integrity
+## Game Image
 
-Please **carefully read** the academic honesty section of the course syllabus. **Any evidence** of impermissible cooperation on projects, use of disallowed materials or resources, or unauthorized use of computer accounts, **will be** submitted to the Student Honor Council, which could result in an XF for the course, or suspension or expulsion from the University. Be sure you understand what you are and what you are not permitted to do in regards to academic integrity when it comes to project assignments. These policies apply to all students, and the Student Honor Council does not consider lack of knowledge of the policies to be a defense for violating them. Full information is found in the course syllabus, which you should review before starting.
+<img src="gameImage.png"
+     alt="Pacman Game Image"
+     style="float: left; margin-right: 10px;" />
