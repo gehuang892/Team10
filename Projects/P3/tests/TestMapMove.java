@@ -9,6 +9,6 @@ public class TestMapMove extends TestCase {
 
     Location loc = new Location(1,1);
     assertTrue(m.move("pacman", loc, Map.Type.PACMAN));
-    assertFalse(m.move("wall"), loc, Map.Type.PACMAN));
+    assertFalse(m.move("wall", loc, Map.Type.PACMAN));
   }
 }
