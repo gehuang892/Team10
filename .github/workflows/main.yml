@@ -1,0 +1,13 @@
+name: Workflow
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build Project
+        run : |
+          javac -cp "Projects/P3/src/" Projects/P3/src/*.java
+          javac -cp "Projects/P3/tests/junit-4.10.jar;src/;tests/" Projects/P3/src/*.java Projects/P3/tests/*.java
