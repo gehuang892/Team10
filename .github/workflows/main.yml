@@ -10,4 +10,4 @@ jobs:
       - name: Build Project
         run : |
           javac -cp "Projects/P3/src/" Projects/P3/src/*.java
-          javac -cp "Projects/P3/tests/junit-4.10.jar:src/:tests/" Projects/P3/src/*.java Projects/P3/tests/*.java
+          javac -cp "Projects/P3/tests/junit-4.10.jar;src/;tests/" Projects/P3/src/*.java Projects/P3/tests/*.java
