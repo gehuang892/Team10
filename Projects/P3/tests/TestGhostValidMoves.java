@@ -1,11 +1,12 @@
 import java.io.*;
 import junit.framework.*;
 import java.util.ArrayList;
+import java.awt.Color;
 
 public class TestGhostValidMoves extends TestCase {
 
   public void testGhostValidMoves() throws FileNotFoundException {
-    Mainframe frame = new MainFrame();
+    MainFrame frame = new MainFrame();
     Ghost ghost1 = frame.addGhost(new Location(1, 1), "test1", Color.red);
 
     ArrayList<Location> result = ghost1.get_valid_moves();

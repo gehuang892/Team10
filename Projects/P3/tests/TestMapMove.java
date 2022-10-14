@@ -4,7 +4,7 @@ import junit.framework.*;
 public class TestMapMove extends TestCase {
 
   public void testMapMove() throws FileNotFoundException {
-    Mainframe frame = new MainFrame();
+    MainFrame frame = new MainFrame();
     Map m = frame.getMap();
 
     Location loc = new Location(1,1);
