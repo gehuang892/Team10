@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Compile and Run Kishore's TestGhostinRange
-        run: 
+        run: |
           cd Projects/P3/
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/TestGhostInRange.java
           java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostInRange
@@ -28,7 +28,7 @@ jobs:
   steps:
     - uses: actions/checkout@v2
     - name: Compile and Run Kishore's TestGhostValidMoves
-      run: 
+      run: |
         cd Projects/P3/
         javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/TestGhostValidMoves.java
         java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostValidMoves
@@ -39,7 +39,7 @@ jobs:
   steps:
     - uses: actions/checkout@v2
     - name: Compile and Run Kishore's TestMapEatCookie
-      run: 
+      run: |
         cd Projects/P3/
         javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/TestMapEatCookie.java
         java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapEatCookie
