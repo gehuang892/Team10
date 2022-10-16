@@ -23,23 +23,23 @@ jobs:
           java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostInRange
 
   kishore_test_ghost_valid_moves:
-  runs-on: ubuntu-latest
-  container: openjdk
-  steps:
-    - uses: actions/checkout@v2
-    - name: Compile and Run Kishore's TestGhostValidMoves
-      run: |
-        cd Projects/P3/
-        javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/TestGhostValidMoves.java
-        java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostValidMoves
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compile and Run Kishore's TestGhostValidMoves
+        run: |
+          cd Projects/P3/
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/TestGhostValidMoves.java
+          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostValidMoves
 
   kishore_test_map_eat_cookie:
-  runs-on: ubuntu-latest
-  container: openjdk
-  steps:
-    - uses: actions/checkout@v2
-    - name: Compile and Run Kishore's TestMapEatCookie
-      run: |
-        cd Projects/P3/
-        javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/TestMapEatCookie.java
-        java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapEatCookie
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compile and Run Kishore's TestMapEatCookie
+        run: |
+          cd Projects/P3/
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/TestMapEatCookie.java
+          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapEatCookie
