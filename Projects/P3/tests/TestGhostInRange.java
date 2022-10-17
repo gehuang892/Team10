@@ -10,13 +10,14 @@ public class TestGhostInRange extends TestCase {
 
     PacMan pacman = frame.addPacMan(new Location(5, 6));
 
-    // Expect no ghost in range -> false
-    assertTrue(pacman.is_ghost_in_range());
+    // With an empty frame and no ghosts initialized, we should expect no ghost nearby.
+    assertFalse(pacman.is_ghost_in_range());
 
+    // After adding a ghost 
     Ghost ghost = frame.addGhost(new Location(5, 5), "name", Color.red);
 
     // Expect for a ghost to be in range -> true
-    assertFalse(pacman.is_ghost_in_range());
+    assertTrue(pacman.is_ghost_in_range());
 
   }
 }
