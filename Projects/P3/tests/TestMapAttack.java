@@ -5,7 +5,7 @@ import java.io.*;
 public class TestMapAttack extends TestCase {
 
   public void testMapAttack() throws FileNotFoundException {
-    NoFrame frame = new NoFrame();
+    MainFrame frame = new MainFrame();
     Map map = frame.getMap();
 
     PacMan pacman = frame.addPacMan(new Location(1, 1));
