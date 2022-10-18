@@ -57,7 +57,9 @@ public class Map {
       if (getLoc(loc) != null && !getLoc(loc).contains(Map.Type.WALL)) {
         components.get(name).setLocation(x, y);
         locations.put(name, loc);
-        if (!field.containsKey(loc)) field.put(loc, new HashSet<Type>());
+        if (!field.containsKey(loc)) {
+            field.put(loc, new HashSet<Type>());
+        }
         field.get(loc).add(type);
         return true;
       }
