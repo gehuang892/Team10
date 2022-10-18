@@ -49,7 +49,7 @@ jobs:
     container: openjdk
     steps:
       - uses: actions/checkout@v2
-       - name: Compile and Run Tina's TestConsume
+      - name: Compile and Run Tina's TestConsume
         run: |
           cd Projects/P3/
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/TestConsume.java
@@ -60,7 +60,7 @@ jobs:
     container: openjdk
     steps:
       - uses: actions/checkout@v2
-       - name: Compile and Run Tina's TestAttack
+      - name: Compile and Run Tina's TestAttack
         run: |
           cd Projects/P3/
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/TestAttack.java
@@ -78,7 +78,7 @@ jobs:
           java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapAttack
   
   richard_test_map_move:
-   runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     container: openjdk
     steps:
       - uses: actions/checkout@v2
@@ -100,7 +100,7 @@ jobs:
           java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManValidMoves
     
   richard_test_pacman_in_range:
-   runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     container: openjdk
     steps:
       - uses: actions/checkout@v2
