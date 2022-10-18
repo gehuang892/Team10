@@ -54,15 +54,13 @@ public class Map {
     if ((type == Map.Type.PACMAN) || (type == Map.Type.GHOST)) {
       int x = loc.x;
       int y = loc.y;
-      if (!getLoc(loc).contains(Map.Type.WALL)) {
-        components.get(name).setLocation(x, y);
-        locations.put(name, loc);
-        if (!field.containsKey(loc)) {
-            field.put(loc, new HashSet<Type>());
-        }
-        field.get(loc).add(type);
-        return true;
+      components.get(name).setLocation(x, y);
+      locations.put(name, loc);
+      if (!field.containsKey(loc)) {
+        field.put(loc, new HashSet<Type>());
       }
+      field.get(loc).add(type);
+      return true;
     }
     return false;
   }
