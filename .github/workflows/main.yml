@@ -44,17 +44,50 @@ jobs:
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/TestMapEatCookie.java
           java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapEatCookie
           
-  richard_test_map_move:
+  tina_test_consume:
     runs-on: ubuntu-latest
     container: openjdk
     steps:
       - uses: actions/checkout@v2
-      - name: Compile and Run Richard's TestMapMove
+       - name: Compile and Run Tina's TestConsume
+        run: |
+          cd Projects/P3/
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/TestConsume.java
+          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestConsume
+          
+  tina_test_attack:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+       - name: Compile and Run Tina's TestAttack
+        run: |
+          cd Projects/P3/
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/TestAttack.java
+          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestAttack
+  
+  tina_test_map_attack:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compile and Run Tina's TestMapAttack
+        run: |
+          cd Projects/P3/
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/TestMapAttack.java
+          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapAttack
+  
+  richard_test_map_move:
+   runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compile and Run Richards's TestMapMove
         run: |
           cd Projects/P3/
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/TestMapMove.java
           java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapMove
-
+    
   richard_test_pacman_valid_moves:
     runs-on: ubuntu-latest
     container: openjdk
@@ -65,9 +98,9 @@ jobs:
           cd Projects/P3/
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/TestPacManValidMoves.java
           java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManValidMoves
-
+    
   richard_test_pacman_in_range:
-    runs-on: ubuntu-latest
+   runs-on: ubuntu-latest
     container: openjdk
     steps:
       - uses: actions/checkout@v2
@@ -76,3 +109,4 @@ jobs:
           cd Projects/P3/
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/TestPacManInRange.java
           java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManInRange
+          

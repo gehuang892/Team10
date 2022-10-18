@@ -4,7 +4,7 @@ import junit.framework.*;
 public class TestConsume extends TestCase {
 
   public void testConsume() throws FileNotFoundException {
-    MainFrame frame = new MainFrame();
+    NoFrame frame = new NoFrame();
     Map m = frame.getMap();
 
 	  PacMan pacman = frame.addPacMan(new Location(0,0));
