@@ -65,21 +65,21 @@ public class Ghost {
     Location above = new Location(x, y + 1);
 
     if (myMap.getLoc(below) != null && myMap.getLoc(below).contains(Map.Type.PACMAN)) {
-      return true;
+      return false;
     }
 
     if (myMap.getLoc(above) != null && myMap.getLoc(above).contains(Map.Type.PACMAN)) {
-      return true;
+      return false;
     }
 
     if (myMap.getLoc(right) != null && myMap.getLoc(right).contains(Map.Type.PACMAN)) {
-      return true;
+      return false;
     }
 
     if (myMap.getLoc(left) != null && myMap.getLoc(left).contains(Map.Type.PACMAN)) {
-      return true;
+      return false;
     }
-    return false;
+    return true;
   }
 
   public boolean attack() {
