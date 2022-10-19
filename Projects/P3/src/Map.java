@@ -82,10 +82,10 @@ public class Map {
     int y = loc.y;
     
     // Possible locations of pacman
-    Location left = new Location(x + 1, y);
-    Location right = new Location(x - 1, y);
-    Location below = new Location(x, y + 1);
-    Location above = new Location(x, y - 1);
+    Location left = new Location(x - 1, y);
+    Location right = new Location(x + 1, y);
+    Location below = new Location(x, y - 1);
+    Location above = new Location(x, y + 1);
 
     // attack pacman by removing and update gameOver
     
@@ -93,29 +93,29 @@ public class Map {
       field.get(loc).remove(Map.Type.PACMAN);
       components.remove(Name);
       gameOver = true;
-      return true;
+      return false;
     
     } else if (field.get(right) != null && field.get(right).contains(Map.Type.PACMAN)) {
       field.get(loc).remove(Map.Type.PACMAN);
       components.remove(Name);
       gameOver = true;
-      return true;
+      return false;
     
     } else if (field.get(below) != null && field.get(below).contains(Map.Type.PACMAN)) {
       field.get(loc).remove(Map.Type.PACMAN);
       components.remove(Name);
       gameOver = true;
-      return true;
+      return false;
     
     } else if (field.get(above) != null && field.get(above).contains(Map.Type.PACMAN)) {
       field.get(loc).remove(Map.Type.PACMAN);
       components.remove(Name);
       gameOver = true;
-      return true;
+      return false;
     }
 
     
-    return false;
+    return true;
   }
 
 	public JComponent eatCookie(String name) {
