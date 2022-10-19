@@ -109,28 +109,6 @@ jobs:
           cd Projects/P3/
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/TestPacManInRange.java
           java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManInRange
-
-  richard_test_map_move:
-    runs-on: ubuntu-latest
-    container: openjdk
-    steps:
-      - uses: actions/checkout@v2
-      - name: Compile and Run Richards's TestMapMove
-        run: |
-          cd Projects/P3/
-          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/TestMapMove.java
-          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapMove
-    
-  richard_test_pacman_valid_moves:
-    runs-on: ubuntu-latest
-    container: openjdk
-    steps:
-      - uses: actions/checkout@v2
-      - name: Compile and Run Richard's TestPacManValidMoves
-        run: |
-          cd Projects/P3/
-          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/TestPacManValidMoves.java
-          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManValidMoves
     
   adrian_test_pacman_move:
     runs-on: ubuntu-latest
