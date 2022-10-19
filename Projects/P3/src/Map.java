@@ -135,9 +135,9 @@ public class Map {
     field.remove(l);
 
     // Increase cookies var
-    cookies--;
+    cookies++;
 
-    // Update components var
-    return components.remove(name);
+    // Update components var, remove name from components
+    return null;
 	}
 }
