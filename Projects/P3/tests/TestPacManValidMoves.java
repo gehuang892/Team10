@@ -6,24 +6,19 @@ import junit.framework.*;
 public class TestPacManValidMoves extends TestCase {
 
   public void testPacManValidMoves() throws FileNotFoundException {
-    MainFrame frame = new MainFrame();
-    PacMan pacMan = frame.addPacMan(new Location(1, 1));
+    NoFrame frame = new NoFrame();
 
+    PacMan pacMan = frame.addPacMan(new Location(1, 1));
     ArrayList<Location> result = pacMan.get_valid_moves();
-    if (result.size() != 2) {
-      assertFalse("Expect 2 possible moves from this location", true);
-    } else {
-      assertTrue("Success!", true);
-    }
+    assertTrue(result.size() == 2);
 
 
     PacMan pacMan2 = frame.addPacMan(new Location(1, 3));
-
     result = pacMan2.get_valid_moves();
-    if (result.size() != 3) {
-      assertFalse("Expect 3 possible moves from this location", true);
-    } else {
-      assertTrue("Success!", true);
-    }
+    assertTrue(result.size() == 3);
+
+    PacMan pacMan3 = frame.addPacMan(new Location(0, 0));
+    result = pacMan3.get_valid_moves();
+    assertTrue(result.size() == 0);
   }
 }

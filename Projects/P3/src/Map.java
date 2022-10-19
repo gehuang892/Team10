@@ -54,13 +54,13 @@ public class Map {
     if ((type == Map.Type.PACMAN) || (type == Map.Type.GHOST)) {
       int x = loc.x;
       int y = loc.y;
-      if (getLoc(loc) != null && !getLoc(loc).contains(Map.Type.WALL)) {
-        components.get(name).setLocation(x, y);
-        locations.put(name, loc);
-        if (!field.containsKey(loc)) field.put(loc, new HashSet<Type>());
-        field.get(loc).add(type);
-        return true;
+      components.get(name).setLocation(x, y);
+      locations.put(name, loc);
+      if (!field.containsKey(loc)) {
+        field.put(loc, new HashSet<Type>());
       }
+      field.get(loc).add(type);
+      return true;
     }
     return false;
   }
@@ -121,6 +121,23 @@ public class Map {
 	public JComponent eatCookie(String name) {
 		// update locations, components, field, and cookies
 		// the id for a cookie at (10, 1) is tok_x10_y1
-		return null;
+		  Location l = locations.remove(name);
+
+    if (l == null) {
+      return null;
+    }
+
+    if (!(getLoc(l).contains(Map.Type.COOKIE) )) {
+      return null;
+    }
+    
+    // Use removed location to update the field var.
+    field.remove(l);
+
+    // Update cookies var
+    cookies++;
+
+    // Update components var
+    return components.remove(name);
 	}
 }
