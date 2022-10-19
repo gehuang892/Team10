@@ -82,10 +82,10 @@ public class Map {
     int y = loc.y;
     
     // Possible locations of pacman
-    Location left = new Location(x - 1, y);
-    Location right = new Location(x + 1, y);
-    Location below = new Location(x, y - 1);
-    Location above = new Location(x, y + 1);
+    Location left = new Location(x + 1, y);
+    Location right = new Location(x - 1, y);
+    Location below = new Location(x, y + 1);
+    Location above = new Location(x, y - 1);
 
     // attack pacman by removing and update gameOver
     
