@@ -118,8 +118,8 @@ jobs:
       - name: Compile and Run Adrian's TestPacManMove
         run: |
           cd Projects/P3/
-          javac -cp "tests/junit-4.10.jar;src/;tests/" src/*.java tests/TestPacManMove.java
-          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar;src/;tests/" org.junit.runner.JUnitCore TestPacManMove
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/TestPacManMove.java
+          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManMove
   
   adrian_test_ghost_move:
     runs-on: ubuntu-latest
@@ -129,8 +129,8 @@ jobs:
       - name: Compile and Run Adrian's TestGhostMove
         run: |
           cd Projects/P3/
-          javac -cp "tests/junit-4.10.jar;src/;tests/" src/*.java tests/TestGhostMove.java
-          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar;src/;tests/" org.junit.runner.JUnitCore TestGhostMove
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/TestGhostMove.java
+          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostMove
 
   adrian_test_map_getLoc:
     runs-on: ubuntu-latest
@@ -140,6 +140,6 @@ jobs:
       - name: Compile and Run Adrian's TestMapGetLoc
         run: |
           cd Projects/P3/
-          javac -cp "tests/junit-4.10.jar;src/;tests/" src/*.java tests/TestMapGetLoc.java
-          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar;src/;tests/" org.junit.runner.JUnitCore TestMapGetLoc
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/TestMapGetLoc.java
+          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapGetLoc
           
