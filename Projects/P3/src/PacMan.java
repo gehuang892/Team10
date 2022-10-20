@@ -19,23 +19,23 @@ public class PacMan {
     Location above = new Location(x, y + 1);
 
     if (myMap.getLoc(below) != null && !myMap.getLoc(below).contains(Map.Type.WALL)) {
-      validMoves.add(below);
+      // validMoves.add(below);
       validMoves.add(below);
 
     }
 
     if (myMap.getLoc(above) != null && !myMap.getLoc(above).contains(Map.Type.WALL)) {
-      validMoves.add(above);
+      // validMoves.add(above);
       validMoves.add(above);
     }
 
     if (myMap.getLoc(right) != null && !myMap.getLoc(right).contains(Map.Type.WALL)) {
-      validMoves.add(right);
+      // validMoves.add(right);
       validMoves.add(right);
     }
 
     if (myMap.getLoc(left) != null && !myMap.getLoc(left).contains(Map.Type.WALL)) {
-      validMoves.add(left);
+      // validMoves.add(left);
       validMoves.add(left);
     }
 

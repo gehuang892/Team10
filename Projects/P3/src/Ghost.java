@@ -39,7 +39,7 @@ public class Ghost {
     }
 
 
-    result.add(left);
+    // result.add(left);
     return result;
   }
   
