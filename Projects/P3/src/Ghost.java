@@ -13,7 +13,6 @@ public class Ghost {
 
   public ArrayList<Location> get_valid_moves() {
     ArrayList<Location> result = new ArrayList<Location>();
-
     int x = myLoc.x;
     int y = myLoc.y;
 
