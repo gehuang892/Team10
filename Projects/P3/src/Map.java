@@ -51,6 +51,7 @@ public class Map {
   public boolean move(String name, Location loc, Type type) {
     // update locations, components, and field
     // use the setLocation method for the component to move it to the new location
+
     if ((type == Map.Type.PACMAN) || (type == Map.Type.GHOST)) {
       int x = loc.x;
       int y = loc.y;
@@ -60,14 +61,14 @@ public class Map {
         field.put(loc, new HashSet<Type>());
       }
       field.get(loc).add(type);
-      return true;
+      return false;
     }
-    return false;
+    return true;
   }
 
 	public HashSet<Type> getLoc(Location loc) {
 		// wallSet and emptySet will help you write this method
-		return field.get(loc);
+		return new HashSet<Type>();
 	}
 
   public boolean attack(String Name) {
@@ -93,35 +94,35 @@ public class Map {
       field.get(loc).remove(Map.Type.PACMAN);
       components.remove(Name);
       gameOver = true;
-      return true;
+      return false;
     
     } else if (field.get(right) != null && field.get(right).contains(Map.Type.PACMAN)) {
       field.get(loc).remove(Map.Type.PACMAN);
       components.remove(Name);
       gameOver = true;
-      return true;
+      return false;
     
     } else if (field.get(below) != null && field.get(below).contains(Map.Type.PACMAN)) {
       field.get(loc).remove(Map.Type.PACMAN);
       components.remove(Name);
       gameOver = true;
-      return true;
+      return false;
     
     } else if (field.get(above) != null && field.get(above).contains(Map.Type.PACMAN)) {
       field.get(loc).remove(Map.Type.PACMAN);
       components.remove(Name);
       gameOver = true;
-      return true;
+      return false;
     }
 
     
-    return false;
+    return true;
   }
 
 	public JComponent eatCookie(String name) {
 		// update locations, components, field, and cookies
 		// the id for a cookie at (10, 1) is tok_x10_y1
-		  Location l = locations.remove(name);
+		Location l = locations.remove(name);
 
     if (l == null) {
       return null;
@@ -134,10 +135,10 @@ public class Map {
     // Use removed location to update the field var.
     field.remove(l);
 
-    // Update cookies var
+    // Increase cookies var
     cookies++;
 
-    // Update components var
-    return components.remove(name);
+    // Update components var, remove name from components
+    return null;
 	}
 }

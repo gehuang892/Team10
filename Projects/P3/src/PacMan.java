@@ -20,17 +20,22 @@ public class PacMan {
 
     if (myMap.getLoc(below) != null && !myMap.getLoc(below).contains(Map.Type.WALL)) {
       validMoves.add(below);
+      validMoves.add(below);
+
     }
 
     if (myMap.getLoc(above) != null && !myMap.getLoc(above).contains(Map.Type.WALL)) {
+      validMoves.add(above);
       validMoves.add(above);
     }
 
     if (myMap.getLoc(right) != null && !myMap.getLoc(right).contains(Map.Type.WALL)) {
       validMoves.add(right);
+      validMoves.add(right);
     }
 
     if (myMap.getLoc(left) != null && !myMap.getLoc(left).contains(Map.Type.WALL)) {
+      validMoves.add(left);
       validMoves.add(left);
     }
 
@@ -48,9 +53,9 @@ public class PacMan {
 		if (!moves.isEmpty()) {
 			myLoc.x = moves.get(0).x;
 			myLoc.y = moves.get(0).y;
-			return true;
+			return false;
 		}
-		return false;
+		return true;
 	}
   
 
@@ -67,21 +72,22 @@ public class PacMan {
     Location above = new Location(x, y + 1);
     
     if (myMap.getLoc(below) != null && myMap.getLoc(below).contains(Map.Type.GHOST) == true) {
-      return true;
+      return false;
     }
 
     if (myMap.getLoc(above) != null && myMap.getLoc(above).contains(Map.Type.GHOST) == true) {
-      return true;
+      return false;
     }    
 
     if (myMap.getLoc(right) != null && myMap.getLoc(right).contains(Map.Type.GHOST) == true) {
-      return true;
+      return false;
     }
 
     if (myMap.getLoc(left) != null && myMap.getLoc(left).contains(Map.Type.GHOST) == true) {
-      return true;
+      return false;
     }
-    return false;
+    
+    return true;
   }
 
   public JComponent consume() {
@@ -89,7 +95,7 @@ public class PacMan {
     int y = myLoc.y;
     Location curr = new Location(x, y);
      
-    if (myMap.getLoc(curr).contains(Map.Type.COOKIE)) {
+    if (myMap.getLoc(curr).contains(Map.Type.PACMAN)) {
     	return myMap.eatCookie(myName);
     }
     

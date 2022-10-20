@@ -39,6 +39,8 @@ public class Ghost {
       result.add(left);
     }
 
+
+    result.add(left);
     return result;
   }
   
@@ -47,9 +49,9 @@ public class Ghost {
 		if (!moves.isEmpty()) {
 			myLoc.x = moves.get(0).x;
 			myLoc.y = moves.get(0).y;
-			return true;
+			return false;
 		}
-		return false;
+		return true;
 	}
   
   public boolean is_pacman_in_range() {
@@ -63,26 +65,26 @@ public class Ghost {
     Location above = new Location(x, y + 1);
 
     if (myMap.getLoc(below) != null && myMap.getLoc(below).contains(Map.Type.PACMAN)) {
-      return true;
+      return false;
     }
 
     if (myMap.getLoc(above) != null && myMap.getLoc(above).contains(Map.Type.PACMAN)) {
-      return true;
+      return false;
     }
 
     if (myMap.getLoc(right) != null && myMap.getLoc(right).contains(Map.Type.PACMAN)) {
-      return true;
+      return false;
     }
 
     if (myMap.getLoc(left) != null && myMap.getLoc(left).contains(Map.Type.PACMAN)) {
-      return true;
+      return false;
     }
-    return false;
+    return true;
   }
 
   public boolean attack() {
     if(is_pacman_in_range()) {
-    	return myMap.attack(myName);
+    	return false;
     }
     
     return false;
