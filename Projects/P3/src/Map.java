@@ -123,15 +123,24 @@ public class Map {
 		// update locations, components, field, and cookies
 		// the id for a cookie at (10, 1) is tok_x10_y1
 
-    boolean nameBool = components.get(name) instanceof CookieComponent;
-    if (nameBool){
-      cookies++;
-      JComponent removedCookie = components.get(name);
-      components.remove(name);
-      return removedCookie;
-    } else {
+    Location l = locations.remove(name);
 
+    if (l == null) {
       return null;
     }
+
+    if (!(getLoc(l).contains(Map.Type.COOKIE) )) {
+      return null;
+    }
+    
+    // Use removed location to update the field var.
+    field.remove(l);
+
+    // Update cookies var
+    cookies++;
+
+    // Update components var
+    return components.remove(name);
+    
 	}
 }
