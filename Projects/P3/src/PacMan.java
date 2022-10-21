@@ -72,22 +72,22 @@ public class PacMan {
     Location above = new Location(x, y + 1);
     
     if (myMap.getLoc(below) != null && myMap.getLoc(below).contains(Map.Type.GHOST) == true) {
-      return false;
+      return true;
     }
 
     if (myMap.getLoc(above) != null && myMap.getLoc(above).contains(Map.Type.GHOST) == true) {
-      return false;
+      return true;
     }    
 
     if (myMap.getLoc(right) != null && myMap.getLoc(right).contains(Map.Type.GHOST) == true) {
-      return false;
+      return true;
     }
 
     if (myMap.getLoc(left) != null && myMap.getLoc(left).contains(Map.Type.GHOST) == true) {
-      return false;
+      return true;
     }
     
-    return true;
+    return false;
   }
 
   public JComponent consume() {
