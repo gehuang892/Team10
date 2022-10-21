@@ -39,8 +39,6 @@ public class Ghost {
       result.add(left);
     }
 
-
-    result.add(left);
     return result;
   }
   
@@ -84,7 +82,7 @@ public class Ghost {
 
   public boolean attack() {
     if(is_pacman_in_range()) {
-    	return false;
+    	return myMap.attack(myName);
     }
     
     return false;
