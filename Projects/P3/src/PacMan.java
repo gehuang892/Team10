@@ -53,9 +53,9 @@ public class PacMan {
 		if (!moves.isEmpty()) {
 			myLoc.x = moves.get(0).x;
 			myLoc.y = moves.get(0).y;
-			return false;
+			return true;
 		}
-		return true;
+		return false;
 	}
   
 
