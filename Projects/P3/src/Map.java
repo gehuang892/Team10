@@ -127,7 +127,7 @@ public class Map {
     if (l == null) {
       return null;
     }
-
+ 
     if (!(getLoc(l).contains(Map.Type.COOKIE) )) {
       return null;
     }
