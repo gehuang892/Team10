@@ -95,7 +95,7 @@ public class PacMan {
     int y = myLoc.y;
     Location curr = new Location(x, y);
      
-    if (myMap.getLoc(curr).contains(Map.Type.PACMAN)) {
+    if (myMap.getLoc(curr).contains(Map.Type.COOKIE)) {
     	return myMap.eatCookie(myName);
     }
     
