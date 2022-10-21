@@ -94,19 +94,19 @@ public class Map {
       field.get(loc).remove(Map.Type.PACMAN);
       components.remove(Name);
       gameOver = true;
-      return false;
+      return true;
     
     } else if (field.get(right) != null && field.get(right).contains(Map.Type.PACMAN)) {
       field.get(loc).remove(Map.Type.PACMAN);
       components.remove(Name);
       gameOver = true;
-      return false;
+      return true;
     
     } else if (field.get(below) != null && field.get(below).contains(Map.Type.PACMAN)) {
       field.get(loc).remove(Map.Type.PACMAN);
       components.remove(Name);
       gameOver = true;
-      return false;
+      return true;
     
     } else if (field.get(above) != null && field.get(above).contains(Map.Type.PACMAN)) {
       field.get(loc).remove(Map.Type.PACMAN);
