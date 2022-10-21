@@ -61,14 +61,14 @@ public class Map {
         field.put(loc, new HashSet<Type>());
       }
       field.get(loc).add(type);
-      return false;
+      return true;
     }
-    return true;
+    return false;
   }
 
 	public HashSet<Type> getLoc(Location loc) {
 		// wallSet and emptySet will help you write this method
-		return new HashSet<Type>();
+		return field.get(loc);
 	}
 
   public boolean attack(String Name) {
@@ -112,33 +112,26 @@ public class Map {
       field.get(loc).remove(Map.Type.PACMAN);
       components.remove(Name);
       gameOver = true;
-      return false;
+      return true;
     }
 
     
-    return true;
+    return false;
   }
 
 	public JComponent eatCookie(String name) {
 		// update locations, components, field, and cookies
 		// the id for a cookie at (10, 1) is tok_x10_y1
-		Location l = locations.remove(name);
 
-    if (l == null) {
+    boolean nameBool = components.get(name) instanceof CookieComponent;
+    if (nameBool){
+      cookies++;
+      JComponent removedCookie = components.get(name);
+      components.remove(name);
+      return removedCookie;
+    } else {
+
       return null;
     }
-
-    if (!(getLoc(l).contains(Map.Type.COOKIE) )) {
-      return null;
-    }
-    
-    // Use removed location to update the field var.
-    field.remove(l);
-
-    // Increase cookies var
-    cookies++;
-
-    // Update components var, remove name from components
-    return null;
 	}
 }
