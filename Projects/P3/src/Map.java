@@ -112,11 +112,11 @@ public class Map {
       field.get(loc).remove(Map.Type.PACMAN);
       components.remove(Name);
       gameOver = true;
-      return false;
+      return true;
     }
 
     
-    return true;
+    return false;
   }
 
 	public JComponent eatCookie(String name) {
